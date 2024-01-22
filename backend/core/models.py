@@ -14,3 +14,14 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+
+class Project(models.Model):
+    project_name = models.CharField(max_length=500)
+    project_display = models.ImageField(upload_to='images/')
+    project_synopsis = models.TextField()
+    project_link = models.CharField(max_length=500)
+    project_repo = models.CharField(max_length=500)
+
+    def __str__(self):
+        return f"{self.project_name} {self.project_link}"
