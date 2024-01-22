@@ -7,8 +7,11 @@ function App() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/index");
+                const response = await axios.get(
+                    `http://localhost:8000/core/api/profile`
+                );
                 setData(response.data);
+                console.log(response.data[0].profile_image);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -17,7 +20,18 @@ function App() {
         fetchData();
     }, []);
 
-    return <div className="App">{data}</div>;
+    return (
+        <div className="App">
+            {data.map((data, i) => (
+                <img
+                    className="profile-image"
+                    key={i}
+                    alt="Profile"
+                    src={`http://localhost:8000/${data.profile_image}`}
+                />
+            ))}
+        </div>
+    );
 }
 
 export default App;
