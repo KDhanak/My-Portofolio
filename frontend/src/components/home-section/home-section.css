@@ -1,0 +1,25 @@
+@media screen and (max-width: 3000px){
+.home-section-container{
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.home-section-image{
+    background-image: url("./../../assets/background-6.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+/* .home-section-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
+
+}
+
