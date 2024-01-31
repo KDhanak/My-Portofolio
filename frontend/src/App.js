@@ -1,9 +1,9 @@
 import "./App.css";
 import React from "react";
-import Navigation from "./components/nav/nav";
-import Profile from "./components/profile/profile";
-import Footer from "./components/footer/footer";
-import HomeSection from "./components/home-section/home-section";
+import Navigation from "./components/nav/Nav";
+import HomeSection from "./components/home-section/Home-Section";
+import Profile from "./components/profile/Profile";
+import Footer from "./components/footer/Footer";
 
 function App() {
     return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./nav.css";
+import "./Nav.css";
 
 const Navigation = () => {
     const [opacity, setOpacity] = useState(1);
@@ -25,7 +25,7 @@ const Navigation = () => {
     }, []);
 
     const borderColor = scrolling ? "#08d" : "black";
-    const borderStyles = { borderBottom: `3px solid ${borderColor}` };
+    const borderStyles = { borderBottom: `4px solid ${borderColor}` };
     return (
         <nav className="navigation">
             <div
