@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./profile.css";
-import Contact from "../contact/contact";
+import "./Profile.css";
+import Contact from "../contact/Contact";
 
 const Profile = () => {
     const [data, setData] = useState([]);
