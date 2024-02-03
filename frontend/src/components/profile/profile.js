@@ -5,8 +5,6 @@ import Contact from "../contact/contact";
 
 const Profile = () => {
     const [data, setData] = useState([]);
-    // const apiURI = process.env.REACT_APP_BASE_URL;
-    // console.log(apiURI);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -40,8 +38,8 @@ const Profile = () => {
     ];
 
     return (
-        <>
-            <main className="profile">
+        <div>
+            <div className="profile">
                 {data.map((data, i) => (
                     <div key={i} className="container">
                         <div className="image-container">
@@ -78,8 +76,8 @@ const Profile = () => {
                         </div>
                     </div>
                 ))}
-            </main>
-        </>
+            </div>
+        </div>
     );
 };
 
