@@ -2,10 +2,12 @@ import React from "react";
 import "./contact.css";
 import { useState } from "react";
 import axios from "axios";
+import ToastNotification from "../../sub-components/Toast-Notification/Toast-Notification";
 
 const Contact = () => {
+    const [formStatus, setFormStatus] = useState(null);
     const [formData, setFormData] = useState({
-        fullname: "",
+        full_name: "",
         email: "",
         message: "",
     });
@@ -13,20 +15,33 @@ const Contact = () => {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
-        setFormData((prevData) => ({
-            ...prevData,
+        setFormData((formData) => ({
+            ...formData,
             [name]: value,
         }));
+    };
+
+    const resetForm = () => {
+        setFormData({ full_name: "", email: "", message: "" });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("", formData);
-            console.log("Form submitted successfully", response.data);
+            console.log(formData);
+            const response = await axios.post(
+                "http://localhost:8000/core/api/contact-me/post",
+                formData
+            );
+            resetForm();
+            setFormStatus("success");
         } catch (error) {
             console.error("Error submitting form:", error);
+            if (error.response) {
+                console.log(error.response.data);
+            }
+            setFormStatus("failure");
         }
     };
 
@@ -36,16 +51,16 @@ const Contact = () => {
                 <div className="subtitle">Get in Touch</div>
                 <div className="input-container ic1">
                     <input
-                        id="fullname"
-                        name="fullname"
+                        id="full_name"
+                        name="full_name"
                         className="input"
                         type="text"
                         placeholder=" "
-                        value={formData.fullname}
+                        value={formData.full_name}
                         onChange={handleInputChange}
                     />
                     <div className="cut"></div>
-                    <label htmlFor="fullname" className="placeholder">
+                    <label htmlFor="full_name" className="placeholder">
                         Full Name
                     </label>
                 </div>
@@ -83,6 +98,18 @@ const Contact = () => {
                 <button type="submit" className="submit">
                     Submit
                 </button>
+                {formStatus && (
+                    <ToastNotification
+                        key={formStatus}
+                        message={
+                            formStatus === "success"
+                                ? "Form Submitted"
+                                : "Error Occurred"
+                        }
+                        success={formStatus === "success"}
+                        // Add more props or styles as needed
+                    />
+                )}
             </form>
         </>
     );

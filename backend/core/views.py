@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 # from rest_framework import permissions
 from .models import Profile
-from .serializers import ProfileSerializer
+from .serializers import ProfileSerializer, EnquirySerializer
 
 
 # Create your views here.
@@ -16,3 +16,18 @@ class indexAPIView(APIView):
         profile = Profile.objects
         serializer = ProfileSerializer(profile, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class MyApiView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = EnquirySerializer(data=request.data)
+        if serializer.is_valid():
+            if None in [
+                serializer.validated_data["full_name"],
+                serializer.validated_data["email"],
+                serializer.validated_data["message"],
+            ]:
+                return Response(serializer.data, status=status.HTTP_206_PARTIAL_CONTENT)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
