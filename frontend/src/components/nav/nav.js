@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Nav.css";
+import "./nav.css";
 
 const Navigation = () => {
     const [opacity, setOpacity] = useState(1);
