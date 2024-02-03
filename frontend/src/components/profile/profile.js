@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./profile.css";
-import Contact from "../contact/contact";
 
 const Profile = () => {
     const [data, setData] = useState([]);
@@ -38,7 +37,7 @@ const Profile = () => {
     ];
 
     return (
-        <div>
+        <>
             <div className="profile">
                 {data.map((data, i) => (
                     <div key={i} className="container">
@@ -51,16 +50,9 @@ const Profile = () => {
                         </div>
                         <div className="synopsis-container">
                             <div className="synopsis-content">
-                                <h1>Skills</h1>
-                                <br />
-                                <div className="skills-container">
-                                    {headings.map((heading, index) => (
-                                        <div key={index} className="skills">
-                                            <h4>{heading}</h4>
-                                        </div>
-                                    ))}
-                                </div>
                                 <h1>Howdy! </h1>
+                                <br />
+
                                 <p>
                                     Thanks for visiting this page. I am Kishan
                                     Dhanak. I have been interested and working
@@ -69,15 +61,23 @@ const Profile = () => {
                                     free to surf through the portfolio and
                                     interesting projects.
                                 </p>
-                            </div>
-                            <div className="contact-container">
-                                <Contact />
+                                <br />
+                                <br />
+
+                                <h1>Skills</h1>
+                                <div className="skills-container">
+                                    {headings.map((heading, index) => (
+                                        <div key={index} className="skills">
+                                            <h4>{heading}</h4>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
-        </div>
+        </>
     );
 };
 

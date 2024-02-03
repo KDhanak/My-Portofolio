@@ -1,7 +1,5 @@
 @media screen and (max-width: 3000px){
 .container {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
     display: flex;
 }
 
@@ -19,14 +17,14 @@
 }
 
 .synopsis-container{
-    background-color: black;
+    background-color: rgb(36, 33, 36);
     width:100%;
     display: flex;
 }
 
 .synopsis-content{
     margin-top: 200px;
-    margin-left: 50px;
+    margin-left: 150px;
     width: 700px;
     padding: 20px; 
     border-top:1.5px solid white;
@@ -57,76 +55,4 @@
     margin:0;
     color:black
 }
-
-.contact-container{
-    width: 300px;
-    margin-top: 200px;
-    margin-left: 40px;
 }
-
-}
-
-
-@media screen and (max-width: 1000px){
-    .container {
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        display: flex;
-    
-    }
-    
-    .image-container, .synopsis-container{
-        height: 100vh;
-    }
-    
-    .image-container{
-        display: none;
-    }
-    
-    .synopsis-container{
-        background-color: black;
-        width:100%;
-        display: flex;
-    }
-    
-    .synopsis-content{
-        margin-top: 200px;
-        margin-left: 25px;
-        width: 600px;
-        padding: 20px; 
-        border-top:1.5px solid white;
-        border-bottom:1.5px solid white;
-        height: 400px;
-    }
-    
-    .synopsis-content p,h1{
-        align-items: center;
-        color: white;
-    }
-    
-    .skills-container{
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 40px;
-    }
-    
-    .skills{
-        width: auto;
-        padding: 10px;
-        margin: 10px;
-        background-color: white;
-        border-color: 1px solid black;
-    }
-    
-    .skills h4{
-        margin:0;
-        color:black
-    }
-    
-    .contact-container{
-        width: 300px;
-        margin-top: 200px;
-        margin-left: 40px;
-    }
-    
-    }
