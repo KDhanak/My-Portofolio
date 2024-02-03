@@ -25,7 +25,7 @@ const Navigation = () => {
     }, []);
 
     const borderColor = scrolling ? "#08d" : "black";
-    const borderStyles = { borderBottom: `3px solid ${borderColor}` };
+    const borderStyles = { borderBottom: `4px solid ${borderColor}` };
     return (
         <nav className="navigation">
             <div

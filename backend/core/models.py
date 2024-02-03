@@ -25,3 +25,9 @@ class Project(models.Model):
 
     def __str__(self):
         return f"{self.project_name} {self.project_link}"
+
+
+class Enquiry(models.Model):
+    full_name = models.CharField(max_length=500)
+    email = models.EmailField(max_length=500)
+    message = models.TextField(default="No message sent.")
