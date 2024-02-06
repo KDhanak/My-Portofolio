@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./nav.css";
+import { IoIosContact } from "react-icons/io";
+import { LiaBloggerB } from "react-icons/lia";
+import { SiOpenproject } from "react-icons/si";
 
 const Navigation = () => {
     // const [opacity, setOpacity] = useState(1);

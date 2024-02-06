@@ -9,13 +9,13 @@
   width: 100%;
   height: 100vh;
   font-family: sans-serif;
-  background-color: white;
+  background-color: rgb(59, 53, 59);
 }
 
 .profile-component{
   position: relative;
   z-index: 0;
-  background-color: black;
+  background-color: rgb(59, 53, 59);
   margin-left: 100px;
   margin-right: 100px;
 }

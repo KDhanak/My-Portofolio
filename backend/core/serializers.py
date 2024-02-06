@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Profile, Enquiry
+from .models import Profile, Enquiry, Project
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -11,4 +11,10 @@ class ProfileSerializer(serializers.ModelSerializer):
 class EnquirySerializer(serializers.ModelSerializer):
     class Meta:
         model = Enquiry
+        fields = '__all__'
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
         fields = '__all__'

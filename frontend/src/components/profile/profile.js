@@ -8,7 +8,7 @@ const Profile = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8000/core/api/profile`
+                    "http://localhost:8000/core/api/profile"
                 );
                 setData(response.data);
             } catch (error) {
@@ -57,7 +57,7 @@ const Profile = () => {
                                     Thanks for visiting this page. I am Kishan
                                     Dhanak. I have been interested and working
                                     in web-development, specially the
-                                    frontend-part for the last 2 years. Feel
+                                    frontend-part for the past 2 years. Feel
                                     free to surf through the portfolio and
                                     interesting projects.
                                 </p>

@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Profile, Project
-from .serializers import ProfileSerializer, EnquirySerializer
+from .serializers import ProfileSerializer, EnquirySerializer, ProjectSerializer
 
 
 # Create your views here.
@@ -34,5 +34,5 @@ class contactMeAPIView(APIView):
 class projectAPIView(APIView):
     def get(self, request, *args, **kwargs):
         profile = Project.objects
-        serializer = ProfileSerializer(profile, many=True)
+        serializer = ProjectSerializer(profile, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

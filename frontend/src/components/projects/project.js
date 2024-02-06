@@ -1,28 +1,48 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./project.css";
 
 const Projects = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = axios.get(
-                "http://localhost:8000/core/api/project"
-            );
-            setData(response.data);
-            console.log(data);
+            try {
+                const response = await axios.get(
+                    "http://localhost:8000/core/api/project"
+                );
+                setData(response.data);
+            } catch (error) {
+                console.error("Error fetching data", error);
+            }
         };
         fetchData();
     }, []);
 
     return (
         <>
+            <div className="heading">
+                <h1>Projects</h1>
+            </div>
             <div className="project-container">
-                <div className="project">
-                    <div className="project-image-container"></div>
-                    <div className="project-synopsis-container"></div>
-                </div>
+                {data.map((data, i) => (
+                    <div key={i} className="project">
+                        <div className="project-image-container">
+                            <img
+                                alt="Project"
+                                src={`http://localhost:8000/${data.project_display}`}
+                                className="project-image"
+                            />
+                        </div>
+                        <div className="project-synopsis-container">
+                            <h2>{data.project_name}</h2>
+                            <p className="project-synopsis">
+                                {data.project_synopsis}
+                            </p>
+                        </div>
+                    </div>
+                ))}
             </div>
         </>
     );
