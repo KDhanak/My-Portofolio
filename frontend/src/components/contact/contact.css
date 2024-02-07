@@ -1,7 +1,7 @@
   .contact{
     justify-content: center;
     display: flex;
-    background-color: rgb(0,0,0, 0.1);
+    background-color: rgb(255,255,255, 0.1);
     backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
     -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
     padding-bottom: 50px;
