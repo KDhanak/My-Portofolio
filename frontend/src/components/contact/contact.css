@@ -1,6 +1,12 @@
-@media screen and (max-width: 2000px){
+  .contact{
+    justify-content: center;
+    display: flex;
+    background-color: rgb(0,0,0, 0.1);
+    backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
+    padding-bottom: 50px;
+  }
   .form {
-    background-color: black;
     box-sizing: border-box;
     height: 410px;
     padding: 20px;
@@ -35,7 +41,7 @@
   }
   
   .input {
-    background-color: #303245;
+    background-color: black;
     border: 0;
     box-sizing: border-box;
     color: #eee;
@@ -47,7 +53,7 @@
   }
   
   .cut {
-    background-color: black;
+    background-color: transparent;
     height: 20px;
     left: 20px;
     position: absolute;
@@ -80,7 +86,7 @@
   
   .input:focus ~ .placeholder,
   .input:not(:placeholder-shown) ~ .placeholder {
-    transform: translateY(-30px) translateX(10px) scale(0.75);
+    transform: translateY(-35px) translateX(10px) scale(1);
   }
   
   .input:not(:placeholder-shown) ~ .placeholder {
@@ -88,16 +94,16 @@
   }
   
   .input:focus ~ .placeholder {
-    color: #FFA372;
+    color: #eb5e28;
   }
   
   .submit {
-    background-color: #08d;
-    border: 0;
+    background-color: white;
+    border: .5px solid black;
     box-sizing: border-box;
-    color: #eee;
+    color: black;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
     height: 50px;
     margin-top: 38px;
     outline: 0;
@@ -106,7 +112,9 @@
   }
   
   .submit:active {
-    background-color: #06b;
+    background-color: #eb5e28;
+    border: 0.5px solid white;
+    color: white;
   }
   
   textarea{
@@ -114,8 +122,26 @@
   }
 
   .notification{
-    margin-bottom: 200px;
-    margin-left: 1550px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-left: 870px;
   }
 
+  .contact-heading{
+    margin-top: 200px;
+    padding: 30px 0px 30px 0px;
+    justify-content: center;
+    background-color: black;
+    display: flex;
+    border-bottom: 1px solid white;
+}
+
+.heading-1,.nav-icon-1{
+  color:white;
+}
+
+.nav-icon-1{
+  font-size: 2.5rem;
+  padding-right:10px;
 }

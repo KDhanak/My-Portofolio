@@ -22,8 +22,13 @@
   padding-top: 100vh;
 }
 
-.navigtion{
+.navigation-component{
   position: fixed;
+  z-index: 1;
+}
+
+.contact-component{
+  position:relative;
   z-index: 1;
 }
 

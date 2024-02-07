@@ -1,5 +1,5 @@
 .footer{
-    background-color: rgb(59, 53, 59);
+    background-color: #6c757c;
     border-top: thin solid white;
 }
 
@@ -17,8 +17,6 @@
 .icon-1:hover, 
 .icon-2:hover, 
 .icon-3:hover{
-    background-color: rgb(102, 91, 102);
-    transition: .2s ease-in-out;
     cursor: pointer;
 }
 

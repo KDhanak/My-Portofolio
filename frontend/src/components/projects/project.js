@@ -27,7 +27,7 @@ const Projects = () => {
                 <div className="heading-icon">
                     <SiOpenproject />
                 </div>
-                <h1>Projects</h1>
+                <h1 className="heading-h1">Projects</h1>
             </div>
             <div className="project-container">
                 {data.map((data, i) => (
