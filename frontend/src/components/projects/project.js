@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./project.css";
+import { SiOpenproject } from "react-icons/si";
 
 const Projects = () => {
     const [data, setData] = useState([]);
@@ -23,6 +24,9 @@ const Projects = () => {
     return (
         <>
             <div className="heading">
+                <div className="heading-icon">
+                    <SiOpenproject />
+                </div>
                 <h1>Projects</h1>
             </div>
             <div className="project-container">

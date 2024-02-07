@@ -4,6 +4,7 @@ import Navigation from "./components/nav/nav";
 import Profile from "./components/profile/profile";
 import Footer from "./components/footer/footer";
 import Projects from "./components/projects/project";
+import Contact from "./components/contact/contact";
 
 function App() {
     return (
@@ -16,6 +17,9 @@ function App() {
             </div>
             <div className="project-component">
                 <Projects />
+            </div>
+            <div className="contact-component">
+                <Contact />
             </div>
             <Footer />
         </div>
