@@ -1,48 +1,62 @@
 import React from "react";
 import "./contact.css";
-import { useState } from "react";
+import { useRef } from "react";
 import axios from "axios";
 import ToastNotification from "../../sub-components/Toast-Notification/Toast-Notification";
 import { IoIosContact } from "react-icons/io";
 
 const Contact = () => {
-    const [formStatus, setFormStatus] = useState(null);
-    const [formData, setFormData] = useState({
-        full_name: "",
-        email: "",
-        message: "",
-    });
+    console.log("Contact Loaded");
+    const formStatusRef = useRef(null);
+    const full_nameRef = useRef("");
+    const emailRef = useRef("");
+    const messageRef = useRef("");
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
-        setFormData((formData) => ({
-            ...formData,
-            [name]: value,
-        }));
+        if (name === "full_name") {
+            full_nameRef.current = value;
+        } else if (name === "email") {
+            emailRef.current = value;
+        } else if (name === "message") {
+            messageRef.current = value;
+        }
     };
 
     const resetForm = () => {
-        setFormData({ full_name: "", email: "", message: "" });
+        full_nameRef.current = "";
+        emailRef.current = "";
+        messageRef.current = "";
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            console.log(formData);
+            console.log({
+                full_name: full_nameRef.current,
+                email: emailRef.current,
+                message: messageRef.current,
+            });
+
             const response = await axios.post(
                 "http://localhost:8000/core/api/contact-me/post",
-                formData
+                {
+                    full_name: full_nameRef.current,
+                    email: emailRef.current,
+                    message: messageRef.current,
+                }
             );
+
             resetForm();
-            setFormStatus("success");
+            formStatusRef.current = "success";
         } catch (error) {
             console.error("Error submitting form:", error);
             if (error.response) {
                 console.log(error.response.data);
             }
-            setFormStatus("failure");
+            formStatusRef.current = "failure";
         }
     };
 
@@ -63,7 +77,6 @@ const Contact = () => {
                             className="input"
                             type="text"
                             placeholder=" "
-                            value={formData.full_name}
                             onChange={handleInputChange}
                         />
                         <div className="cut"></div>
@@ -79,7 +92,6 @@ const Contact = () => {
                             className="input"
                             type="text"
                             placeholder=" "
-                            value={formData.email}
                             onChange={handleInputChange}
                         />
                         <div className="cut"></div>
@@ -94,7 +106,6 @@ const Contact = () => {
                             name="message"
                             className="input"
                             placeholder=" "
-                            value={formData.message}
                             onChange={handleInputChange}
                             rows={4}
                         />
@@ -106,15 +117,15 @@ const Contact = () => {
                     <button type="submit" className="submit">
                         Submit
                     </button>
-                    {formStatus && (
+                    {formStatusRef.current && (
                         <ToastNotification
-                            key={formStatus}
+                            key={formStatusRef.current}
                             message={
-                                formStatus === "success"
+                                formStatusRef.current === "success"
                                     ? "Form Submitted"
                                     : "Error Occurred"
                             }
-                            success={formStatus === "success"}
+                            success={formStatusRef.current === "success"}
                         />
                     )}
                 </form>

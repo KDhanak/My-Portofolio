@@ -9,7 +9,7 @@
     justify-content: center;
     backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
       -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid white;
 }
 
 .project{
@@ -21,29 +21,30 @@
 .project-image{
     width: 600px;
     height: 350px;
+    border: 1px solid #bae0f3
 }
 .project-synopsis{
     width: 600px;
 }
 .project-synopsis-container{
-    color: black;
+    color: #04052e;
 }
 .heading{
     padding: 30px 0px 30px 0px;
     justify-content: center;
-    background-color: black;
+    background-color: #97d3cb;
     display: flex;
     border-bottom: 1px solid white;
 }
 
 .heading-icon{
-    color: white;
+    color: #04052e;
     font-size: 2.3rem;
     padding: 0px 7px 0px 0px;
 }
 
 .heading-h1{
-    color: white;
+    color: #04052e;
 }
 
 .project-image-container{

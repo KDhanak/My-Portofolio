@@ -5,6 +5,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import "./footer.css";
 
 const Footer = () => {
+    console.log("Footer loaded");
     const handleClick = (link) => {
         return () => {
             if (link === "LinkedIn") {

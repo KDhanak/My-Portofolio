@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    background-color: white;
+    background-color: #04052e;
     border-bottom: 0.5px solid white;
 }
 
@@ -18,12 +18,12 @@
 .profile-image{
     height: 80vh;
     width: auto;
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 .synopsis-container{
     justify-content: center;
-    background-color: white;
+    background-color: #04052e;
     width:100%;
     display: flex;
     padding: 0px 330px 0px 200px;
@@ -33,14 +33,14 @@
     margin-top: 200px;
     width: 700px;
     padding: 20px; 
-    border-top:1.5px solid black;
-    border-bottom:1.5px solid black;
+    border-top:1.5px solid #bae0f3;
+    border-bottom:1.5px solid white;
     height: 400px;
 }
 
 .synopsis-content p,h1{
     align-items: center;
-    color: black;
+    color: #bae0f3;
 }
 
 .skills-container{
@@ -53,12 +53,12 @@
     width: auto;
     padding: 10px;
     margin: 10px;
-    background-color: black;
-    border-color: 1px solid white;
+    background-color: #bae0f3;
+    border-color: 1px solid black;
 }
 
 .skills h4{
     margin:0;
-    color:white
+    color:#04052e;
 }
 

@@ -7,6 +7,7 @@ import Projects from "./components/projects/project";
 import Contact from "./components/contact/contact";
 
 function App() {
+    console.log("App loaded");
     return (
         <div className="App">
             <div className="navigation-component">

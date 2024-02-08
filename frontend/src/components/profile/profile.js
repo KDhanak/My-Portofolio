@@ -3,6 +3,7 @@ import axios from "axios";
 import "./profile.css";
 
 const Profile = () => {
+    console.log("Profile Loaded");
     const [data, setData] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
