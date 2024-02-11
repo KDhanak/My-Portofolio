@@ -112,9 +112,9 @@
   }
   
   .submit:active {
-    background-color: #97d3cb;
+    background-color: #04052e;
     border: 0.5px solid white;
-    color: 04052e;
+    color: #97d3cb;
     font-weight: 100;
   }
   

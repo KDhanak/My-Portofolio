@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./profile.css";
+import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 
 const Profile = () => {
     console.log("Profile Loaded");
@@ -51,20 +52,35 @@ const Profile = () => {
                         </div>
                         <div className="synopsis-container">
                             <div className="synopsis-content">
-                                <h1>Howdy! </h1>
+                                <h1>Welcome! </h1>
                                 <br />
 
                                 <p>
-                                    Thanks for visiting this page. I am Kishan
+                                    Thanks for visiting my domain. I am Kishan
                                     Dhanak. I have been interested and working
                                     in web-development, specially the
-                                    frontend-part for the past 2 years. Feel
-                                    free to surf through the portfolio and
-                                    interesting projects.
+                                    backend-part for the past 2 years.
+                                    <br />
+                                    <br />
+                                    <h3 style={{ color: "white" }}>
+                                        Education:
+                                    </h3>
+                                    I have finished my undergarduation from
+                                    Federation University Australia in
+                                    Information & Communication Technology.
+                                    <br />
+                                    <br />
+                                    <a src="#">
+                                        <h3
+                                            style={{
+                                                color: "white",
+                                            }}
+                                        >
+                                            Resume & Certificates
+                                            <HiArrowTopRightOnSquare className="blog-mini-icon" />
+                                        </h3>
+                                    </a>
                                 </p>
-                                <br />
-                                <br />
-
                                 <h1>Skills</h1>
                                 <div className="skills-container">
                                     {headings.map((heading, index) => (
