@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./profile.css";
-import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 
 const Profile = () => {
     console.log("Profile Loaded");
@@ -68,18 +67,6 @@ const Profile = () => {
                                     I have finished my undergarduation from
                                     Federation University Australia in
                                     Information & Communication Technology.
-                                    <br />
-                                    <br />
-                                    <a src="#">
-                                        <h3
-                                            style={{
-                                                color: "white",
-                                            }}
-                                        >
-                                            Resume & Certificates
-                                            <HiArrowTopRightOnSquare className="blog-mini-icon" />
-                                        </h3>
-                                    </a>
                                 </p>
                                 <h1>Skills</h1>
                                 <div className="skills-container">

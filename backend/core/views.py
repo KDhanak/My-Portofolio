@@ -34,8 +34,6 @@ class contactMeAPIView(APIView):
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [serializer.validated_data["email"]]
             send_mail(subject, message, email_from, recipient_list)
-            print(send_mail(subject, message, email_from, recipient_list)
-                  )
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

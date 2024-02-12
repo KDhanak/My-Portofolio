@@ -1,16 +1,13 @@
 import React from "react";
 import "./nav.css";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 import { IoIosContact } from "react-icons/io";
 import { LiaBloggerB } from "react-icons/lia";
 import { SiOpenproject } from "react-icons/si";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
+import { IoMdDocument } from "react-icons/io";
 
 const Navigation = () => {
-    const scrollToTop = () => {
-        scroll.scrollToTop();
-    };
-
     return (
         <>
             <nav className="navigation">
@@ -44,11 +41,30 @@ const Navigation = () => {
                         </Link>
                     </div>
                     <div className="nav-button">
-                        <a role="button">
+                        <a
+                            role="button"
+                            href="http://localhost:3000/blog"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div className="nav-icon-3">
                                 <LiaBloggerB />
                             </div>
                             Blog
+                            <HiArrowTopRightOnSquare className="blog-mini-icon" />
+                        </a>
+                    </div>
+                    <div className="nav-button">
+                        <a
+                            role="button"
+                            href="https://drive.google.com/drive/folders/1Xwt57h37RfmaYYnMfnqh6vyug6miTZUT?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <div className="nav-icon-4">
+                                <IoMdDocument />
+                            </div>
+                            Resume/Certificates
                             <HiArrowTopRightOnSquare className="blog-mini-icon" />
                         </a>
                     </div>
