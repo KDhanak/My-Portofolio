@@ -1,62 +1,80 @@
 import React from "react";
 import "./contact.css";
-import { useRef } from "react";
+import { useState } from "react";
 import axios from "axios";
 import ToastNotification from "../../sub-components/Toast-Notification/Toast-Notification";
 import { IoIosContact } from "react-icons/io";
+import { BarLoader } from "react-spinners";
 
 const Contact = () => {
     console.log("Contact Loaded");
-    const formStatusRef = useRef(null);
-    const full_nameRef = useRef("");
-    const emailRef = useRef("");
-    const messageRef = useRef("");
+    const [formStatus, setFormStatus] = useState();
+    const [formFields, setFormFields] = useState({
+        full_name: "",
+        email: "",
+        message: "",
+    });
+    const [validationError, setValidationError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
-        if (name === "full_name") {
-            full_nameRef.current = value;
-        } else if (name === "email") {
-            emailRef.current = value;
-        } else if (name === "message") {
-            messageRef.current = value;
-        }
+        setFormFields((prevFormFields) => ({
+            ...prevFormFields,
+            [name]: value,
+        }));
     };
 
-    const resetForm = () => {
-        full_nameRef.current = "";
-        emailRef.current = "";
-        messageRef.current = "";
+    const validateForm = () => {
+        const { full_name, email, message } = formFields;
+
+        if (!full_name.trim() || !email.trim() || !message.trim()) {
+            setValidationError("All fields are required");
+            return false;
+        }
+        if (!isValidEmail(email)) {
+            setValidationError("Invalid email address");
+            return false;
+        }
+
+        setValidationError(null);
+        return true;
+    };
+
+    const isValidEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        try {
-            console.log({
-                full_name: full_nameRef.current,
-                email: emailRef.current,
-                message: messageRef.current,
-            });
+        if (!validateForm()) {
+            return;
+        }
 
+        try {
+            setLoading(true);
             const response = await axios.post(
                 "http://localhost:8000/core/api/contact-me/post",
-                {
-                    full_name: full_nameRef.current,
-                    email: emailRef.current,
-                    message: messageRef.current,
-                }
+                formFields
             );
+            setFormStatus("success");
 
-            resetForm();
-            formStatusRef.current = "success";
+            setFormFields({
+                full_name: "",
+                email: "",
+                message: "",
+            });
         } catch (error) {
             console.error("Error submitting form:", error);
             if (error.response) {
                 console.log(error.response.data);
             }
-            formStatusRef.current = "failure";
+            setFormStatus("failure");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -76,8 +94,9 @@ const Contact = () => {
                             name="full_name"
                             className="input"
                             type="text"
-                            placeholder=" "
+                            placeholder=""
                             onChange={handleInputChange}
+                            disabled={loading}
                         />
                         <div className="cut"></div>
                         <label htmlFor="full_name" className="placeholder">
@@ -91,8 +110,9 @@ const Contact = () => {
                             name="email"
                             className="input"
                             type="text"
-                            placeholder=" "
+                            placeholder=""
                             onChange={handleInputChange}
+                            disabled={loading}
                         />
                         <div className="cut"></div>
                         <label htmlFor="email" className="placeholder">
@@ -105,31 +125,38 @@ const Contact = () => {
                             id="message"
                             name="message"
                             className="input"
-                            placeholder=" "
+                            placeholder=""
                             onChange={handleInputChange}
                             rows={4}
+                            disabled={loading}
                         />
                         <div className="cut cut-short"></div>
                         <label htmlFor="email" className="placeholder">
                             Let me know your thoughts..
                         </label>
                     </div>
-                    <button type="submit" className="submit">
-                        Submit
+                    <button type="submit" className="submit" disabled={loading}>
+                        {loading ? "Submitting... " : "Submit"}
                     </button>
-                    {formStatusRef.current && (
-                        <ToastNotification
-                            key={formStatusRef.current}
-                            message={
-                                formStatusRef.current === "success"
-                                    ? "Form Submitted"
-                                    : "Error Occurred"
-                            }
-                            success={formStatusRef.current === "success"}
-                        />
+                    {loading && <BarLoader color="#36d7b7" width={280} />}
+                    {validationError && (
+                        <div className="validation-error">
+                            {validationError}
+                        </div>
                     )}
                 </form>
             </div>
+            {formStatus && (
+                <ToastNotification
+                    key={formStatus}
+                    message={
+                        formStatus === "success"
+                            ? "Form Submitted"
+                            : "Error Occurred"
+                    }
+                    success={formStatus === "success"}
+                />
+            )}
         </>
     );
 };

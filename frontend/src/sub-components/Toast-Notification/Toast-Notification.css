@@ -46,7 +46,7 @@
         var(--notification-primary)
     );
     border-radius: inherit;
-    animation: progress 2.5s 0.3s linear;
+    animation: progress 2s 0.3s linear;
 }
 
 .notification__body {
