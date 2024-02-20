@@ -1,5 +1,5 @@
 :root {
-    --notification-background: #313e2c;
+    --notification-background: #6c757c;
     --notification-primary: #aaec8a;
     --background: #FAF9FF;
 }
@@ -13,8 +13,6 @@
 .notification {
     position: absolute;
     width: max-content;
-    left: 0; 
-    right: 0; 
     bottom: 24px;
     background-color: var(
         --notification-background);
@@ -46,7 +44,7 @@
         var(--notification-primary)
     );
     border-radius: inherit;
-    animation: progress 2.5s 0.3s linear;
+    animation: progress 2s 0.3s linear;
 }
 
 .notification__body {

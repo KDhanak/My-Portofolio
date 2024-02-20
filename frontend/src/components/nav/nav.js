@@ -1,51 +1,76 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./nav.css";
+import { Link } from "react-scroll";
+import { IoIosContact } from "react-icons/io";
+import { LiaBloggerB } from "react-icons/lia";
+import { SiOpenproject } from "react-icons/si";
+import { HiArrowTopRightOnSquare } from "react-icons/hi2";
+import { IoMdDocument } from "react-icons/io";
 
 const Navigation = () => {
-    const [opacity, setOpacity] = useState(1);
-    const [scrolling, setScrolling] = useState(false);
-    const scrollThreshold = 1000;
-    const scrollThreshold2 = 100;
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.scrollY;
-
-            const newOpacity = Math.max(0, 1 - scrollTop / scrollThreshold);
-            setOpacity(newOpacity);
-
-            setScrolling(scrollTop > scrollThreshold2);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    const borderColor = scrolling ? "#08d" : "black";
-    const borderStyles = { borderBottom: `4px solid ${borderColor}` };
     return (
-        <nav className="navigation">
-            <div
-                className={`nav-container ${scrolling ? "active" : ""}`}
-                style={{ backgroundColor: `rgba(48, 50, 69, ${opacity})` }}
-            >
-                <div>
-                    <a style={borderStyles}>Kishan Dhanak</a>
+        <>
+            <nav className="navigation">
+                <div className="nav-container">
+                    <div className="nav-button">
+                        <Link
+                            to="contact-component"
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                        >
+                            <div className="nav-icon-1">
+                                <IoIosContact />
+                            </div>
+                            Contact
+                        </Link>
+                    </div>
+                    <div className="nav-button">
+                        <Link
+                            to="project-component"
+                            spy={true}
+                            smooth={true}
+                            offset={700}
+                            duration={500}
+                        >
+                            <div className="nav-icon-2">
+                                <SiOpenproject />
+                            </div>
+                            Projects
+                        </Link>
+                    </div>
+                    <div className="nav-button">
+                        <a
+                            role="button"
+                            href="http://localhost:3000/blog"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <div className="nav-icon-3">
+                                <LiaBloggerB />
+                            </div>
+                            Blog
+                            <HiArrowTopRightOnSquare className="blog-mini-icon" />
+                        </a>
+                    </div>
+                    <div className="nav-button">
+                        <a
+                            role="button"
+                            href="https://drive.google.com/drive/folders/1Xwt57h37RfmaYYnMfnqh6vyug6miTZUT?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <div className="nav-icon-4">
+                                <IoMdDocument />
+                            </div>
+                            Resume/Certificates
+                            <HiArrowTopRightOnSquare className="blog-mini-icon" />
+                        </a>
+                    </div>
                 </div>
-                <div>
-                    <a style={borderStyles}>Contact</a>
-                </div>
-                <div>
-                    <a style={borderStyles}>Projects</a>
-                </div>
-                <div>
-                    <a style={borderStyles}>Blog</a>
-                </div>
-            </div>
-        </nav>
+            </nav>
+        </>
     );
 };
 
