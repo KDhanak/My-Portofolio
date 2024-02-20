@@ -1,6 +1,7 @@
   .contact{
     justify-content: center;
     display: flex;
+    flex-direction: row;
     background-color: rgb(255,255,255, 0.1);
     backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
     -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
@@ -12,7 +13,7 @@
     padding: 20px;
     width: 320px;
   }
-  
+
   .subtitle {
     color: black;
     font-family: sans-serif;
@@ -20,17 +21,17 @@
     font-weight: 600;
     margin-top: 10px;
   }
-  
+
   .input-container {
     height: 50px;
     position: relative;
     width: 100%;
   }
-  
+
   .ic1 {
     margin-top: 30px;
   }
-  
+
   .ic2 {
     margin-top: 20px;
   }
@@ -39,7 +40,7 @@
     margin-top: 20px;
     height: 80px;
   }
-  
+
   .input {
     background-color: white;
     border: 0;
@@ -51,7 +52,7 @@
     padding: 4px 20px 0;
     width: 100%;
   }
-  
+
   .cut {
     background-color: transparent;
     height: 20px;
@@ -62,16 +63,16 @@
     transition: transform 200ms;
     width: 76px;
   }
-  
+
   .cut-short {
     width: 175px;
   }
-  
+
   .input:focus ~ .cut,
   .input:not(:placeholder-shown) ~ .cut {
     transform: translateY(8px);
   }
-  
+
   .placeholder {
     color: black;
     font-family: sans-serif;
@@ -83,20 +84,20 @@
     transition: transform 200ms, color 200ms;
     top: 20px;
   }
-  
+
   .input:focus ~ .placeholder,
   .input:not(:placeholder-shown) ~ .placeholder {
     transform: translateY(-35px) translateX(10px) scale(1);
   }
-  
+
   .input:not(:placeholder-shown) ~ .placeholder {
     color: white;
   }
-  
+
   .input:focus ~ .placeholder {
     color: #04052e;
   }
-  
+
   .submit {
     background-color: white;
     border: .5px solid black;
@@ -110,14 +111,14 @@
     text-align: center;
     width: 100%;
   }
-  
+
   .submit:active {
     background-color: #04052e;
     border: 0.5px solid white;
     color: #97d3cb;
     font-weight: 100;
   }
-  
+
   textarea{
     resize: none;
   }
@@ -126,7 +127,6 @@
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
-    margin-left: 870px;
   }
 
   .contact-heading{
@@ -136,17 +136,17 @@
     background-color: #97d3cb;
     display: flex;
     border-bottom: 1px solid white;
-}
+  }
 
-.heading-1,.nav-icon-1{
-  color:#04052e;
-}
+  .heading-1,.nav-icon-1{
+    color:#04052e;
+  }
 
-.nav-icon-1{
-  font-size: 2.5rem;
-  padding-right:10px;
-}
+  .nav-icon-1{
+    font-size: 2.5rem;
+    padding-right:10px;
+  }
 
-.validation-error{
-  color: #940000; 
-}
+  .validation-error{
+    color: #940000; 
+  }

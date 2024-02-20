@@ -30,7 +30,7 @@ const Contact = () => {
         const { full_name, email, message } = formFields;
 
         if (!full_name.trim() || !email.trim() || !message.trim()) {
-            setValidationError("All fields are required");
+            setValidationError("*All fields are required*");
             return false;
         }
         if (!isValidEmail(email)) {
@@ -100,7 +100,7 @@ const Contact = () => {
                         />
                         <div className="cut"></div>
                         <label htmlFor="full_name" className="placeholder">
-                            Full Name
+                            Full Name*
                         </label>
                     </div>
                     <br />
@@ -116,7 +116,7 @@ const Contact = () => {
                         />
                         <div className="cut"></div>
                         <label htmlFor="email" className="placeholder">
-                            Email
+                            Email*
                         </label>
                     </div>
                     <br />
@@ -132,7 +132,7 @@ const Contact = () => {
                         />
                         <div className="cut cut-short"></div>
                         <label htmlFor="email" className="placeholder">
-                            Let me know your thoughts..
+                            Let me know your thoughts*..
                         </label>
                     </div>
                     <button type="submit" className="submit" disabled={loading}>
@@ -145,18 +145,18 @@ const Contact = () => {
                         </div>
                     )}
                 </form>
+                {formStatus && (
+                    <ToastNotification
+                        key={formStatus}
+                        message={
+                            formStatus === "success"
+                                ? "Form Submitted"
+                                : "Error Occurred"
+                        }
+                        success={formStatus === "success"}
+                    />
+                )}
             </div>
-            {formStatus && (
-                <ToastNotification
-                    key={formStatus}
-                    message={
-                        formStatus === "success"
-                            ? "Form Submitted"
-                            : "Error Occurred"
-                    }
-                    success={formStatus === "success"}
-                />
-            )}
         </>
     );
 };

@@ -13,8 +13,6 @@
 .notification {
     position: absolute;
     width: max-content;
-    left: 0; 
-    right: 0; 
     bottom: 24px;
     background-color: var(
         --notification-background);
