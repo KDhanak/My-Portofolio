@@ -1,3 +1,42 @@
 .footer{
-    background-color: rgba(0, 0, 0, 0.87);
+    background-color: #04052e;
+    border-top: 1px solid white;
+}
+
+.icons-container{
+    display:flex;
+    color:white;
+    justify-content: center;
+}
+
+.icon-1, .icon-2, .icon-3{
+    color: white;
+    padding: 10px;
+}
+
+.icon-1:hover, 
+.icon-2:hover, 
+.icon-3:hover{
+    cursor: pointer;
+}
+
+.icon-1{
+    font-size: 2rem;
+}
+
+.icon-2{
+    font-size: 2.2rem;
+    
+}
+
+.icon-3{
+    font-size: 2.3rem;
+    
+}
+
+.connect{
+    padding-top: 10px;
+    display: flex;
+    color:white;
+    justify-content: center;
 }
