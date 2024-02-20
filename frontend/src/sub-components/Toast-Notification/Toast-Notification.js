@@ -3,7 +3,6 @@ import "./Toast-Notification.css";
 
 const ToastNotification = (props) => {
     const [imageSource, setImageSource] = useState("");
-    console.log("toast notification loaded");
 
     useEffect(() => {
         if (props.message === "Form Submitted") {

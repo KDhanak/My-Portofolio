@@ -1,30 +1,21 @@
 import "./App.css";
 import React from "react";
 import Navigation from "./components/nav/nav";
+import HomeSection from "./components/home-section/home-section";
 import Profile from "./components/profile/profile";
 import Footer from "./components/footer/footer";
-import Projects from "./components/projects/project";
-import Contact from "./components/contact/contact";
-import ScrollTop from "./sub-components/Scroll-Top/Scroll-Top";
 
 function App() {
-    console.log("App loaded");
     return (
         <div className="App">
-            <div className="scrollTop-component">
-                <ScrollTop />
-            </div>
-            <div className="navigation-component" id="navigation-component">
+            <div className="navigation-component">
                 <Navigation />
             </div>
-            <div className="profile-component" id="profile-component">
+            <div className="home-section-component">
+                <HomeSection />
+            </div>
+            <div className="profile-section-component">
                 <Profile />
-            </div>
-            <div className="project-component" id="project-component">
-                <Projects />
-            </div>
-            <div className="contact-component" id="contact-component">
-                <Contact />
             </div>
             <Footer />
         </div>

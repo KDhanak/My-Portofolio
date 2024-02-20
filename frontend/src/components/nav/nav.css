@@ -1,10 +1,11 @@
 .navigation{
     position: fixed;  
+    top:0;
+    left:0;
     width: 100%;
     z-index: 1;
+    background-color: rgba(0, 0, 0, 0.61);
     transition: padding 2s ease;  
-    border-bottom: 1px solid white;
-
 }
 
   @media screen and (max-width: 3000px) {
@@ -13,42 +14,27 @@
       justify-content: space-around;
       align-items: center;
       text-align: center;
-      color:#04052e;
+      color:rgb(255, 255, 255);
       font-size: 15px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 20px;
+      padding-bottom: 20px;
       font-weight: bold;
+      background-color:rgb(40, 42, 61);
       transition: padding 2s ease;
-      background-color: #97d3cb;
       }
       
   }
 
-.nav-button a {
+a {
   padding-bottom: 2px;
   transition: border-color 2s ease;
-  color:#04052e;
   }
 
-.nav-button{
-  padding:5px;
-}
 
-.nav-button:hover {
+a:hover {
   cursor: pointer;
+  color:#FFA372;
+  transition: color .5s ease;
   }
-
-.nav-icon-2, .nav-icon-4{
-  font-size: 1.5rem;
-}
-
-.nav-icon-1, .nav-icon-3{
-  font-size: 1.8rem;
-}
-
-.blog-mini-icon{
-  font-size: smaller;
-}
-
 
   

@@ -1,37 +1,30 @@
-  .contact{
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    background-color: rgb(255,255,255, 0.1);
-    backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(45%) brightness(140%);
-    padding-bottom: 50px;
-  }
+@media screen and (max-width: 2000px){
   .form {
+    background-color: black;
     box-sizing: border-box;
     height: 410px;
     padding: 20px;
     width: 320px;
   }
-
+  
   .subtitle {
-    color: black;
+    color: #eee;
     font-family: sans-serif;
     font-size: 20px;
     font-weight: 600;
     margin-top: 10px;
   }
-
+  
   .input-container {
     height: 50px;
     position: relative;
     width: 100%;
   }
-
+  
   .ic1 {
     margin-top: 30px;
   }
-
+  
   .ic2 {
     margin-top: 20px;
   }
@@ -40,21 +33,21 @@
     margin-top: 20px;
     height: 80px;
   }
-
+  
   .input {
-    background-color: white;
+    background-color: #303245;
     border: 0;
     box-sizing: border-box;
-    color: black;
+    color: #eee;
     font-size: 18px;
     height: 100%;
     outline: 0;
     padding: 4px 20px 0;
     width: 100%;
   }
-
+  
   .cut {
-    background-color: transparent;
+    background-color: black;
     height: 20px;
     left: 20px;
     position: absolute;
@@ -63,18 +56,18 @@
     transition: transform 200ms;
     width: 76px;
   }
-
+  
   .cut-short {
     width: 175px;
   }
-
+  
   .input:focus ~ .cut,
   .input:not(:placeholder-shown) ~ .cut {
     transform: translateY(8px);
   }
-
+  
   .placeholder {
-    color: black;
+    color: white;
     font-family: sans-serif;
     left: 20px;
     line-height: 14px;
@@ -84,69 +77,45 @@
     transition: transform 200ms, color 200ms;
     top: 20px;
   }
-
+  
   .input:focus ~ .placeholder,
   .input:not(:placeholder-shown) ~ .placeholder {
-    transform: translateY(-35px) translateX(10px) scale(1);
+    transform: translateY(-30px) translateX(10px) scale(0.75);
   }
-
+  
   .input:not(:placeholder-shown) ~ .placeholder {
     color: white;
   }
-
+  
   .input:focus ~ .placeholder {
-    color: #04052e;
+    color: #FFA372;
   }
-
+  
   .submit {
-    background-color: white;
-    border: .5px solid black;
+    background-color: #08d;
+    border: 0;
     box-sizing: border-box;
-    color: black;
+    color: #eee;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 18px;
     height: 50px;
     margin-top: 38px;
     outline: 0;
     text-align: center;
     width: 100%;
   }
-
+  
   .submit:active {
-    background-color: #04052e;
-    border: 0.5px solid white;
-    color: #97d3cb;
-    font-weight: 100;
+    background-color: #06b;
   }
-
+  
   textarea{
     resize: none;
   }
 
   .notification{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 200px;
+    margin-left: 1550px;
   }
 
-  .contact-heading{
-    margin-top: 200px;
-    padding: 30px 0px 30px 0px;
-    justify-content: center;
-    background-color: #97d3cb;
-    display: flex;
-    border-bottom: 1px solid white;
-  }
-
-  .heading-1,.nav-icon-1{
-    color:#04052e;
-  }
-
-  .nav-icon-1{
-    font-size: 2.5rem;
-    padding-right:10px;
-  }
-
-  .validation-error{
-    color: #940000; 
-  }
+}

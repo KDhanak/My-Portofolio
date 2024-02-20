@@ -11,35 +11,23 @@
   font-family: sans-serif;
 }
 
-.profile-component{
+.home-section-component{
+  background-size: cover;
   position: fixed;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  margin-top: -900px;
 }
 
-.project-component{
+.profile-section-component{
   position: relative;
   z-index: 0;
-  padding-top: 100vh;
+  margin-top: 900px;
+  background-color: black;
 }
 
-.navigation-component{
-  position: fixed;
-  z-index: 1;
-}
-
-.scrollTop-component{
-  position: fixed;
-  z-index: 1;
-  margin-top: 100px;
-  margin-left: 1800px;
-}
-
-.contact-component{
-  position:relative;
-  z-index: 1;
-}
-
-.footer{
+.navigtion{
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
