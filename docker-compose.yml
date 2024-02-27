@@ -21,11 +21,13 @@ services:
       dockerfile: Dockerfile
     command: npm start
     volumes: 
-      - ./frontend:/app/frontend
+      - ./frontend:/app
     ports:
       - "3000:3000"
     depends_on:
       - backend
+    environment:
+      - CHOKIDAR_USEPOLLING=True
 
   db:
     image: postgres
