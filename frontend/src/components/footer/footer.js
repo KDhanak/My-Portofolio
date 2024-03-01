@@ -3,8 +3,6 @@ import { GrLinkedin } from "react-icons/gr";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import "./footer.css";
-import { HiArrowTopRightOnSquare } from "react-icons/hi2";
-
 const Footer = () => {
     console.log("Footer loaded");
     const handleClick = (link) => {

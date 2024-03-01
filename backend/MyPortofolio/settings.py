@@ -136,12 +136,14 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-ALLOWED_HOSTS = [
-    "localhost", "170.64.176.33"
-]
-
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000",
-                        "http://localhost:8000", "http://170.64.176.33:3000", "http://170.64.176.33:8000"]
+if DEBUG:
+    ALLOWED_HOSTS = ["localhost",]
+    CORS_ALLOWED_ORIGINS = ["http://localhost:3000",
+                            "http://localhost:8000",]
+else:
+    ALLOWED_HOSTS = ["170.64.176.33",]
+    CORS_ALLOWED_ORIGINS = [
+        "http://170.64.176.33:3000", "http://170.64.176.33:8000",]
 
 # For the media files
 MEDIA_URL = '/media/'

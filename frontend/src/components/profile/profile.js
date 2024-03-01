@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./profile.css";
+import apiUrlFunction from "../../utils/apiLogic";
 
 const Profile = () => {
     console.log("Profile Loaded");
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiURL = apiUrlFunction();
     const [data, setData] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(
-                    "http://localhost:8000/core/api/profile"
-                );
+                const response = await axios.get(`${apiURL}/core/api/profile`, {
+                    headers: {
+                        Authorization: `Bearer ${apiKey}`,
+                        "Content-Type": `application/json`,
+                    },
+                });
                 setData(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -46,7 +52,7 @@ const Profile = () => {
                             <img
                                 className="profile-image"
                                 alt="Profile"
-                                src={`http://localhost:8000/${data.profile_image}`}
+                                src={`${apiURL}/${data.profile_image}`}
                             />
                         </div>
                         <div className="synopsis-container">

@@ -5,6 +5,7 @@ import axios from "axios";
 import ToastNotification from "../../sub-components/Toast-Notification/Toast-Notification";
 import { IoIosContact } from "react-icons/io";
 import { BarLoader } from "react-spinners";
+import apiUrlFunction from "../../utils/apiLogic";
 
 const Contact = () => {
     console.log("Contact Loaded");
@@ -46,7 +47,8 @@ const Contact = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };
-
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiURL = apiUrlFunction();
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -57,8 +59,14 @@ const Contact = () => {
         try {
             setLoading(true);
             const response = await axios.post(
-                "http://localhost:8000/core/api/contact-me/post",
-                formFields
+                `${apiURL}/core/api/contact-me/post`,
+                formFields,
+                {
+                    headers: {
+                        Authorization: `Bearer ${apiKey}`,
+                        "Content-Type": "application/json",
+                    },
+                }
             );
             setFormStatus("success");
 
