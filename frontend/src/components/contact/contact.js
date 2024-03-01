@@ -9,8 +9,6 @@ import apiUrlFunction from "../../utils/apiLogic";
 
 const Contact = () => {
     console.log("Contact Loaded");
-    const apiKey = process.env.REACT_APP_API_KEY;
-    const apiUrl = process.env.REACT_APP_BASE_URL;
     const [formStatus, setFormStatus] = useState();
     const [formFields, setFormFields] = useState({
         full_name: "",
