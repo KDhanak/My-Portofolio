@@ -6,8 +6,11 @@ import { LiaBloggerB } from "react-icons/lia";
 import { SiOpenproject } from "react-icons/si";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { IoMdDocument } from "react-icons/io";
+import apiUrlFunction from "../../utils/apiLogic";
 
 const Navigation = () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiURL = apiUrlFunction();
     return (
         <>
             <nav className="navigation">
@@ -43,7 +46,7 @@ const Navigation = () => {
                     <div className="nav-button">
                         <a
                             role="button"
-                            href="http://170.64.176.33:3000/blog"
+                            href={`${apiURL}/blog`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

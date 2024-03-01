@@ -3,19 +3,21 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./project.css";
 import { SiOpenproject } from "react-icons/si";
+import apiUrlFunction from "../../utils/apiLogic";
 
 const Projects = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
-    const apiUrl = process.env.REACT_APP_BASE_URL;
+    const apiURL = apiUrlFunction();
+
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${apiUrl}/core/api/project`, {
+                const response = await axios.get(`${apiURL}/core/api/project`, {
                     headers: {
                         Authorization: `Bearer ${apiKey}`,
-                        "Content-Type": "application/json",
+                        "Content-Type": `application/json`,
                     },
                 });
                 setData(response.data);
@@ -40,7 +42,7 @@ const Projects = () => {
                         <div className="project-image-container">
                             <img
                                 alt="Project"
-                                src={`${apiUrl}/${data.project_display}`}
+                                src={`${apiURL}/${data.project_display}`}
                                 className="project-image"
                             />
                         </div>
