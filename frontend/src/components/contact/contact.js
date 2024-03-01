@@ -8,6 +8,8 @@ import { BarLoader } from "react-spinners";
 
 const Contact = () => {
     console.log("Contact Loaded");
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiUrl = process.env.REACT_APP_BASE_URL;
     const [formStatus, setFormStatus] = useState();
     const [formFields, setFormFields] = useState({
         full_name: "",
@@ -57,8 +59,14 @@ const Contact = () => {
         try {
             setLoading(true);
             const response = await axios.post(
-                "http://localhost:8000/core/api/contact-me/post",
-                formFields
+                `${apiUrl}/core/api/contact-me/post`,
+                {
+                    body: formFields,
+                    header: {
+                        Authorization: `Bearer ${apiKey}`,
+                        "Content-Type": "application/json",
+                    },
+                }
             );
             setFormStatus("success");
 

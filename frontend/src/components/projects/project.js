@@ -5,14 +5,19 @@ import "./project.css";
 import { SiOpenproject } from "react-icons/si";
 
 const Projects = () => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const apiUrl = process.env.REACT_APP_BASE_URL;
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(
-                    "http://localhost:8000/core/api/project"
-                );
+                const response = await axios.get(`${apiUrl}/core/api/project`, {
+                    headers: {
+                        Authorization: `Bearer ${apiKey}`,
+                        "Content-Type": "application/json",
+                    },
+                });
                 setData(response.data);
             } catch (error) {
                 console.error("Error fetching data", error);
@@ -35,7 +40,7 @@ const Projects = () => {
                         <div className="project-image-container">
                             <img
                                 alt="Project"
-                                src={`http://localhost:8000/${data.project_display}`}
+                                src={`${apiUrl}/${data.project_display}`}
                                 className="project-image"
                             />
                         </div>

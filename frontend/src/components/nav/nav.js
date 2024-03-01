@@ -43,7 +43,7 @@ const Navigation = () => {
                     <div className="nav-button">
                         <a
                             role="button"
-                            href="http://localhost:3000/blog"
+                            href="http://170.64.176.33:3000/blog"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
