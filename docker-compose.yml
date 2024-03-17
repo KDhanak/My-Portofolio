@@ -1,34 +1,32 @@
-version: "3.8"
+version: '3.8'
 services:
-  backend: 
-    build: 
-      context: ./backend/
-      dockerfile: Dockerfile
+
+  backend:
+    build: ./backend
+
     command: >
-      sh -c "python manage.py createsuperuser_if_not_exists && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py createsuperuser_if_not_exists && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./backend:/app
-    ports:
+    ports: 
       - "8000:8000"
     env_file:
       - .env
     depends_on:
       - db
-  
-  frontend:
-    build:
-      context: ./frontend/
-      dockerfile: Dockerfile
-    command: npm start
-    volumes: 
-      - ./frontend:/app
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    environment:
-      - CHOKIDAR_USEPOLLING=True
 
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports: 
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend:/app
+    command: 
+      sh -c "npm install && npm start"
+  
   db:
     image: postgres
     volumes:
@@ -42,5 +40,3 @@ services:
 
 volumes:
   postgres_data:
-
-  
